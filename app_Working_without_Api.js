@@ -3,8 +3,6 @@ const user_input = document.querySelector("#user_input");
 const phrase = document.querySelector(".phrase");
 const pass = document.querySelector("#pass");
 const cursor = document.querySelector('.cursor');
-const select = document.querySelector('.select');
-const wrapper = document.querySelector('.text-wrapper');
 
 //time elements
 const outputSeconds = document.querySelector('#second');
@@ -18,6 +16,29 @@ const cpm = document.querySelector('#cpm');
 //char_index keeps cnt of which index of the phrase is currently on
 var char_index = 0;
 
+//RANDOM FAMOUS QUOTE API
+const loadQuotes = async () => {
+    try{
+        const res = await axios.get("https://type.fit/api/quotes");
+        // phrase.innerHTML = res.data[3].text;
+        return res.data
+        // console.log(phrase.innerHTML);
+    } catch(e){
+        console.log("ERROR", e);
+    }
+};
+loadQuotes(phrase);
+
+
+// phrase.innerHTML = getQuote();
+// console.log(quote);
+
+//Variable for initial length of phrase
+var phrase_length = phrase.innerHTML.length;
+//phrase_copy is used in place of og phrase as og phase will change
+var phrase_copy = phrase.innerHTML;
+var start = false;
+
 var seconds = 0;
 var tens = 0;
 var minutes = 0;
@@ -26,66 +47,31 @@ var char_right = 0;
 var char_wrong = 0;
 var interval
 
-var start = false;
 
-var quotes;
 
-var phrase_length = 0;
-var phrase_copy;
+//Creates an array that stores all the words in order
+words = phrase.innerHTML.split(" ");
 var word_cnt = 0;
 
-
-var span_arr = {};
-
-// RANDOM FAMOUS QUOTE API
-fetch("https://type.fit/api/quotes")
-    .then(function(response) {
-        //is first response received, convert to a readable json object
-        return response.json();
-    })
-    .then(function(data) {
-        //Perform this function when a response has been received
-        //essentially turns into a synchronous code
-        quotes = data;
-        // loadQuotes(data);
-    });
-
-
-let loadQuotes = (quotes) => {
-    console.log('in function');
-
-    phrase.innerHTML = quotes[Math.floor(Math.random()*quotes.length)].text;
-
-    //Variable for initial length of phrase
-    phrase_length = phrase.innerHTML.length;
-    //phrase_copy is used in place of og phrase as og phase will change
-    phrase_copy = phrase.innerHTML;
-    
-    //Creates an array that stores all the words in order
-    words = phrase.innerHTML.split(" ");
-
-    //Wrap every character with a span,
-    //Split string into individual components, map creates an array that wraps each element
-    //with a span, join converts array back into string, without space separation
-    //Finally, replace old phrase with new spanned version
-    //This allows individual characters to be styled using CSS
-    phrase.innerHTML = phrase.innerHTML
+//Wrap every character with a span,
+//Split string into individual components, map creates an array that wraps each element
+//with a span, join converts array back into string, without space separation
+//Finally, replace old phrase with new spanned version
+//This allows individual characters to be styled using CSS
+phrase.innerHTML = phrase.innerHTML
     .split("")
     .map(function (letter, index) {
         return '<span id="char-' + index + '">' + letter + "</span>";
     })
     .join("");
 
-    //Create object to store the HTML selected span elements with corresponding id
-    //This is a good way to create incrementing variable names
-    for (let i = 0; i < phrase_length; i++) {
-        span_arr["#char-" + i] = document.querySelector("#char-" + i);
-    }
 
-    console.log('done preparing');
+//Create object to store the HTML selected span elements with corresponding id
+//This is a good way to create incrementing variable names
+var span_arr = {};
+for (let i = 0; i < phrase_length; i++) {
+    span_arr["#char-" + i] = document.querySelector("#char-" + i);
 }
-
-
 
 function blink_cursor(add_del, char_index) {
     if (char_index > 0 && char_index < phrase_length && add_del == "add") {
@@ -100,6 +86,7 @@ function blink_cursor(add_del, char_index) {
         char_index -= 1;
         span_arr[`#char-${char_index }`].classList.remove("textCursor");
     }
+
 
     if (char_index == 0 && add_del == 'add'){
         span_arr[`#char-${0}`].classList.add("blinkCursor");
@@ -122,9 +109,9 @@ document.addEventListener("keydown", function (e) {
             tens = 0;
             seconds = 0;
             interval = setInterval(startTime, 10);              //increment 10ms following the startTime function
-            console.log(interval);
         }
         span_arr[`#char-${char_index}`].innerHTML = phrase_copy[char_index];
+
 
         //Add button pressed into the text field to be compared with main
         user_input.innerHTML = user_input.innerHTML + e.key;
@@ -140,25 +127,21 @@ document.addEventListener("keydown", function (e) {
             //If wrong and not backspace
             span_arr["#char-" + char_index].style.color = "#B3FFAE"; //orange
             span_arr["#char-" + char_index].innerHTML = e.key;
+            
             char_wrong += 1;
         }
         
-        if(char_index > 0) span_arr["#char-" + parseInt(char_index - 1)].innerHTML = phrase_copy[char_index-1];
-        
-
         char_index += 1;
         blink_cursor("add", char_index);
 
 
+
+
         //---------------If timer is done or user enters everything correctly--------------------------------------------------------------------------
-        if (user_input.innerHTML == phrase_copy || char_index == phrase_length) {
+        if (user_input.innerHTML == phrase_copy) {
             clearInterval(interval);
 
             cursor.classList.add('on');
-            char_wrong = 0;
-
-            wrapper.style.transition = 'transform 0.3s ease';
-            wrapper.style.transform = 'translate(0, -12px)';
 
             start = false;
             blink_cursor("del", char_index);
@@ -168,6 +151,8 @@ document.addEventListener("keydown", function (e) {
             }
         }
         //----------------------------------------------------------------------------------------------------------------------------------------------
+
+
 
 
 
@@ -206,41 +191,12 @@ document.addEventListener("keydown", function (e) {
     }
 
 });
-
-
-// ---------------------------------_Mouse Click--------------------------------------------------
-phrase.addEventListener("click", function (e) {
-    console.log('clicked');
-    
-
-    char_wrong = 0;
-    
-    char_index = 0;
-    clearInterval(interval);
-    tens = 0;
-    seconds = 0;
-    start = false;
-
-    wrapper.style.transition = 'transform 0.3s ease';
-    wrapper.style.transform = 'translate(0, -12px)';
-
-    outputTens.innerHTML = '00';
-    outputSeconds.innerHTML = '00';
-    user_input.innerHTML = '';
-
-    cpm.innerHTML = '0';
-    wpm.innerHTML = '0';
-
-    loadQuotes(quotes);
+user_input.addEventListener("click", function (e) {
     if (start == false){
         blink_cursor("add", 0);
     }
+});
 
-});
-wrapper.addEventListener("mouseleave", function(e){
-    wrapper.style.transition = '';
-    wrapper.style.transform = '';
-});
 //----------------------------------Cursor Event Listener-------------------------------------------
 document.addEventListener('mousemove', (e) =>{
     let x = e.pageX;
@@ -256,16 +212,13 @@ function startTime(){
     if (tens <= 9){
         outputTens.innerHTML = '0' + tens;
     } else if (tens > 9 && tens <= 99){
-        
+
         if (tens == 10){
             //Math for WPM and CPM
 
             //USE LENGTH OF typed characters instead
-            let calc_time = ((seconds == 0) ? tens : tens*seconds)/600;
-            cpm.innerHTML = Math.round((user_input.innerHTML.length / calc_time).toString());                  //character per minute
-            let wpm_temp = parseInt(cpm.innerHTML)/5;
-            wpm.innerHTML = Math.round((wpm_temp - (((char_wrong/calc_time) > wpm_temp) ? 0 : char_wrong/calc_time)));    
-            //Add logic to prevent negative number due to high char_wrong
+            cpm.innerHTML = Math.round((user_input.innerHTML.length * 1200/((seconds == 0) ? tens : tens*seconds)).toString());                  //character per minute
+            wpm.innerHTML = Math.round((parseInt(cpm.innerHTML)/5));    
         }
         outputTens.innerHTML = tens;
     } else {

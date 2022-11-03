@@ -28,35 +28,39 @@
 /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<Objects>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
 
 /*------------------------------------BACKGROUND BOX-------------------------------------*/
+
 .info{
     grid-row: 3/4;
     grid-column: 1/3;
-    margin: 2% 2% 0 0;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    padding: 10%;
-    font-size: 2rem;
-    color: white;
-    border-radius: 16px 16px 0 0;
     height: 80%;
     align-self: flex-end;
+
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 3rem;
+    text-shadow:0px 0px 8px; 
+    padding: 2%;
+
 }
 .time_box{
     grid-row: 3/4;
     grid-column: 11/13;
-    margin: 0 0 2% 2%;
+    margin: 0 0 8%;
     display: flex;
     justify-content: center;
-    align-items: center;
-    padding: 10%;
-    font-size: 2rem;
-    color: white;
-    border-radius: 16px 16px 0 0;
+    align-items: flex-end;
+
     height: 80%;
     align-self: flex-end;
+
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 3rem;
+    text-shadow:0px 0px 6px; 
+    padding: 2%;
 }
 /*----------------------------------------NAVBAR------------------------------------------*/
 .navbar {
@@ -82,18 +86,20 @@
     justify-content: center;
     align-items: center;
     padding: 0 2rem 0 2rem;
+    z-index: 2;
 }
 .phrase {
     text-align: center;
     color: rgba(255, 255, 255, 0.5);
     font-size: 50px;
     text-shadow:2px 2px 15px; 
-    padding: 2%;
+    padding: 2% 3% 2% 3%;
 }
 #user_input {
     grid-area: main;
     opacity: 0%;
-    /* z-index: 0;  changes z layer change. Higher values appear in foreground*/
+    z-index: 1;  /*changes z layer change. Higher values appear in foreground*/
+
 }
 
 /*--------------------------------------BG BOX and IMAGE--------------------------------------------*/
@@ -128,9 +134,10 @@
 /* --------------------------------------Glassmorphism-------------------------------------------- */
 .glass {
     /* From https://css.glass */
-    background: rgba(255, 255, 255, 0.20);
+    background: rgba(255, 255, 255, 0.3);
     border-radius: 16px;
-    /* box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2); */
+    backdrop-filter: blur(7.8px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.6);
     box-shadow: 0px 2px 20px rgba(255,255,255,0.6);
     border: 1px solid rgb(255, 255, 255);
 }
@@ -148,41 +155,29 @@
     cursor: none;
 }
 /*===============================CURSOR MANIPULATION==============================*/
+
+.raise:hover{
+    transition: transform 0.3s ease;
+    transform: translate(0, -12px);
+}
+.raise:not(:hover){
+    transition: transform 0.3s ease;
+    transform: translate(0, 12px);
+}
 .textCursor {
     background: rgba(255, 255, 255, 0.192);
     border-radius: 8px;
     box-shadow: 0 4px 30px rgba(241, 241, 241, 0.3);
 }
 .blinkCursor{
-    animation: blink 1.5s steps(1) infinite;
+    animation: blink 1.5s steps(2) infinite;
 }
 /* Set cursor blinking on the right side of a letter */
 @keyframes blink {
     0% {
-        background-color: transparent;
-        border-radius: 8px;
-        box-shadow: 0;
-        border: 0;
-    }
-
-    45% {
-        background-color: transparent;
-        border-radius: 8px;
-        box-shadow: 0;
-        border: 0;
-    }
-
-    50% {
         background: rgba(255, 255, 255, 0.192);
         border-radius: 8px;
         box-shadow: 0 4px 30px rgba(241, 241, 241, 0.3);
-    }
-
-    95% {
-        background-color: transparent;
-        border-radius: 8px;
-        box-shadow: 0;
-        border: 0;
     }
 
     100% {
