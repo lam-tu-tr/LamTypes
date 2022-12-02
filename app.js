@@ -1,16 +1,16 @@
 //-----------------------------------Selecting HTML elements-----------------------------
 const user_input = document.querySelector("#user_input");
 const phrase = document.querySelector(".phrase");
-const pass = document.querySelector("#pass");
+const pass = document.querySelector("#pass"); 
 const cursor = document.querySelector('.cursor');
 const select = document.querySelector('.select');
 const wrapper = document.querySelector('.text-wrapper');
 
-//time elements
+//---------------------------------------time elements------------------------------------
 const outputSeconds = document.querySelector('#second');
 const outputTens = document.querySelector('#ten');
 
-//WPM and CPM
+//------------------------------------------WPM and CPM-----------------------------------
 
 const wpm = document.querySelector('#wpm');
 const cpm = document.querySelector('#cpm');
@@ -37,7 +37,7 @@ var word_cnt = 0;
 
 var span_arr = {};
 
-// RANDOM FAMOUS QUOTE API
+//------------------------------------RANDOM FAMOUS QUOTE API---------------------------------------
 fetch("https://type.fit/api/quotes")
     .then(function(response) {
         //is first response received, convert to a readable json object
