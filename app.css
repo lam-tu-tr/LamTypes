@@ -1,189 +1,210 @@
-*{
-    overflow:hidden;                                                   /*prevents scrolling*/
-    /* font-family: 'Source Code Pro', monospace; */
-    font-family: 'Space Mono', monospace;
-    /* font-family: 'Roboto Mono', monospace; */
-    cursor:none;                                                       /*disable cursor*/
+* {
+  overflow: hidden;
+  /*prevents scrolling*/
+  /* font-family: 'Source Code Pro', monospace; */
+  font-family: "Space Mono", monospace;
+  /* font-family: 'Roboto Mono', monospace; */
+  cursor: none;
+  /*disable cursor*/
 }
 
 .grid {
-    display: grid;
-    /* gap: 1em; */
-    grid-template-columns: repeat(12, 1fr);
-    /* Restrict column widths to 1fr for 12 columns*/
-    grid-template-rows: 1fr 2fr 1fr;                /*also can use 1fr auto 1fr for automatic sizing for main*/ 
+  display: grid;
+  /* gap: 1em; */
+  grid-template-columns: repeat(12, 1fr);
+  /* Restrict column widths to 1fr for 12 columns*/
+  grid-template-rows: 1fr 2fr 1fr;
+  /*also can use 1fr auto 1fr for automatic sizing for main*/
 
-    /* restrict row height to fractions*/
-    grid-auto-columns: 1fr;
-    /* padding: 1%; */
-    height: 100vh;
+  /* restrict row height to fractions*/
+  grid-auto-columns: 1fr;
+  /* padding: 1%; */
+  height: 100vh;
 
-    grid-template-areas:
-        "nav nav nav nav nav nav nav nav nav nav nav nav"
-        ". . main main main main main main main main . ."
-        ". . bg bg bg bg bg bg bg bg . .";
-    background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+  grid-template-areas:
+    "nav nav nav nav nav nav nav nav nav nav nav nav"
+    ". . main main main main main main main main . ."
+    ". . bg bg bg bg bg bg bg bg . .";
+  background-image: linear-gradient(
+    43deg,
+    #4158d0 0%,
+    #c850c0 46%,
+    #ffcc70 100%
+  );
 }
 
 /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<Objects>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
 
 /*------------------------------------BACKGROUND BOX-------------------------------------*/
 
-.info{
-    grid-row: 3/4;
-    grid-column: 1/3;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    height: 80%;
-    align-self: flex-end;
+.info {
+  grid-row: 3/4;
+  grid-column: 1/3;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  height: 80%;
+  align-self: flex-end;
 
-    color: rgba(255, 255, 255, 0.5);
-    font-size: 3rem;
-    text-shadow:0px 0px 8px; 
-    padding: 2%;
-
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 3rem;
+  text-shadow: 0px 0px 8px;
+  padding: 2%;
 }
-.time_box{
-    grid-row: 3/4;
-    grid-column: 11/13;
-    margin: 0 0 8%;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
 
-    height: 80%;
-    align-self: flex-end;
+.time_box {
+  grid-row: 3/4;
+  grid-column: 11/13;
+  margin: 0 0 8%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
 
-    color: rgba(255, 255, 255, 0.5);
-    font-size: 3rem;
-    text-shadow:0px 0px 6px; 
-    padding: 2%;
+  height: 80%;
+  align-self: flex-end;
+
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 3rem;
+  text-shadow: 0px 0px 6px;
+  padding: 2%;
 }
+
 /*----------------------------------------NAVBAR------------------------------------------*/
 .navbar {
-    height: 7vh;
-    /*vh is a css unit stands for viewheight, here 5vh is 5%*/
-    grid-area: nav;
-    /* text-align: left; */
-    display:flex;
-    padding: 2%;
-    align-items: center;
-    justify-content: flex-start;
-    color: rgba(255, 255, 255, 0.5);
-    font-size: 20px;
-    text-shadow:1px 1px 7px; 
-    margin: 1%;
+  height: 7vh;
+  /*vh is a css unit stands for viewheight, here 5vh is 5%*/
+  grid-area: nav;
+  /* text-align: left; */
+  display: flex;
+  padding: 2%;
+  align-items: center;
+  justify-content: flex-start;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 20px;
+  text-shadow: 1px 1px 7px;
+  margin: 1%;
 }
+
 /*-------------------------------------MAIN BOX-------------------------------------------*/
 .text-wrapper {
-    background-color: transparent;
-    grid-area: main;
+  background-color: transparent;
+  grid-area: main;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0 2rem 0 2rem;
-    z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 2rem 0 2rem;
+  z-index: 2;
 }
+
 .phrase {
-    text-align: center;
-    color: rgba(255, 255, 255, 0.5);
-    font-size: 50px;
-    text-shadow:2px 2px 15px; 
-    padding: 2% 3% 2% 3%;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 50px;
+  text-shadow: 2px 2px 15px;
+  padding: 2% 3% 2% 3%;
 }
-#user_input {
-    grid-area: main;
-    opacity: 0%;
-    z-index: 1;  /*changes z layer change. Higher values appear in foreground*/
 
+#user_input {
+  grid-area: main;
+  opacity: 0%;
+  z-index: 1;
+  /*changes z layer change. Higher values appear in foreground*/
 }
 
 /*--------------------------------------BG BOX and IMAGE--------------------------------------------*/
 .glass.bg-frame {
-    grid-area: bg;
-    height: 20vh;
-    align-self: end;
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 5%;
-    translate: 0 80%;
-    border-radius: 16px 16px 0 0;
+  grid-area: bg;
+  height: 20vh;
+  align-self: end;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 5%;
+  translate: 0 80%;
+  border-radius: 16px 16px 0 0;
 
+  /*Allow timed transition of animation when hovering transition <animation function, animation time, animation-timing-function, animation delay start time>*/
+  transition: translate 0.3s ease;
+}
 
-    /*Allow timed transition of animation when hovering transition <animation function, animation time, animation-timing-function, animation delay start time>*/
-    transition: translate 0.3s ease;
+.glass.bg-frame:hover {
+  translate: 0 0%;
 }
-.glass.bg-frame:hover{
-    translate: 0 0%;
+
+.glass.bg-frame > div > img {
+  border-radius: 16px;
+  width: 250px;
+  height: 150px;
+  /* margin: 5%; */
+  object-fit: cover;
+  opacity: 80%;
+  box-shadow: 0px 2px 20px;
 }
-.glass.bg-frame>div>img {
-    border-radius: 16px;
-    width: 250px;
-    height: 150px;
-    /* margin: 5%; */
-    object-fit: cover;
-    opacity: 80%;
-    box-shadow: 0px 2px 20px;
-}
+
 /* --------------------------------------Glassmorphism-------------------------------------------- */
 .glass {
-    /* From https://css.glass */
-    background: rgba(255, 255, 255, 0.3);
-    border-radius: 16px;
-    backdrop-filter: blur(7.8px);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.6);
-    box-shadow: 0px 2px 20px rgba(255,255,255,0.6);
-    border: 1px solid rgb(255, 255, 255);
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 16px;
+  /* backdrop-filter: blur(7.8px); */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.6);
+  box-shadow: 0px 2px 20px rgba(255, 255, 255, 0.6);
+  border: 1px solid rgb(255, 255, 255);
 }
 
 /*------------------------------------------Cursor-------------------------------------------------*/
-.cursor.on{
-    z-index:999;
-    background:rgb(255, 255, 255,0.5);
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    box-shadow: 0px 2px 20px rgba(255,255,255,1);
-    position: fixed;                /*Sets position of element relative to viewport*/
-    pointer-events: none;           /*sets condition a particulate graphic becomes target of pointer*/
-    cursor: none;
+.cursor.on {
+  z-index: 999;
+  background: rgb(255, 255, 255, 0.5);
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  box-shadow: 0px 2px 20px rgba(255, 255, 255, 1);
+  position: fixed;
+  /*Sets position of element relative to viewport*/
+  pointer-events: none;
+  /*sets condition a particulate graphic becomes target of pointer*/
+  cursor: none;
 }
+
 /*===============================CURSOR MANIPULATION==============================*/
 
-.raise:hover{
-    transition: transform 0.3s ease;
-    transform: translate(0, -12px);
+.raise:hover {
+  transition: transform 0.3s ease;
+  transform: translate(0, -12px);
 }
-.raise:not(:hover){
-    transition: transform 0.3s ease;
-    transform: translate(0, 12px);
+
+.raise:not(:hover) {
+  transition: transform 0.3s ease;
+  transform: translate(0, 12px);
 }
+
 .textCursor {
+  background: rgba(255, 255, 255, 0.192);
+  border-radius: 8px;
+  box-shadow: 0 4px 30px rgba(241, 241, 241, 0.3);
+}
+
+.blinkCursor {
+  animation: blink 1.5s steps(2) infinite;
+}
+
+/* Set cursor blinking on the right side of a letter */
+@keyframes blink {
+  0% {
     background: rgba(255, 255, 255, 0.192);
     border-radius: 8px;
     box-shadow: 0 4px 30px rgba(241, 241, 241, 0.3);
-}
-.blinkCursor{
-    animation: blink 1.5s steps(2) infinite;
-}
-/* Set cursor blinking on the right side of a letter */
-@keyframes blink {
-    0% {
-        background: rgba(255, 255, 255, 0.192);
-        border-radius: 8px;
-        box-shadow: 0 4px 30px rgba(241, 241, 241, 0.3);
-    }
+  }
 
-    100% {
-        background-color: transparent;
-        border-radius: 8px;
-        box-shadow: 0;
-        border: 0;
-    }
+  100% {
+    background-color: transparent;
+    border-radius: 8px;
+    box-shadow: 0;
+    border: 0;
+  }
 }
