@@ -2,7 +2,7 @@
 
 ### HTML, CSS, Javascript
 
-> A simple typing speed test
+> My first project is a simple typing speed test
 
 > Built from scratch in 2 weeks, this project kicked started my web development 
   journey by demanding the need to solve fundamental design problems without 
