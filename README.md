@@ -1,4 +1,4 @@
-# LamTypes.github.io
+# [LamTypes](https://lam-tu-tr.github.io/LamTypes.github.io/)
 
 ### HTML, CSS, Javascript
 
