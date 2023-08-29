@@ -4,6 +4,7 @@ A typing speed test
 **Link to project:** https://lam-tu-tr.github.io/Lamtypes.github.io/
 pls
 ![Pic](/Pics/Lamtypes.png)
+![Another](https://imgur.com/a/iRySdkR)
 ## How It's Made:
 
 **Tech used:** HTML, CSS, JavaScript
