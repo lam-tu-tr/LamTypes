@@ -3,7 +3,7 @@ A typing speed test
 
 **Link to project:** https://lam-tu-tr.github.io/LamTypes.github.io/
 
-![pic]([http://placecorgi.com/1200/650](https://imgur.com/a/iRySdkR))
+![pic](https://imgur.com/a/iRySdkR)
 
 ## How It's Made:
 
