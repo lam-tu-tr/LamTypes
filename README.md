@@ -2,8 +2,8 @@
 A typing speed test
 
 **Link to project:** https://lam-tu-tr.github.io/Lamtypes.github.io/
-
-![Pic]('/Pics/LamTypes.png')
+pls
+![Pic]('/Pics/Lamtypes.png')
 ## How It's Made:
 
 **Tech used:** HTML, CSS, JavaScript
