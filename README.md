@@ -1,7 +1,7 @@
 # Lam Types
 A typing speed test
 
-**Link to project:** https://lam-tu-tr.github.io/LamTypes.github.io/
+**Link to project:** https://lam-tu-tr.github.io/Lamtypes.github.io/
 
 ![Pic]('/Pics/LamTypes.png')
 ## How It's Made:
