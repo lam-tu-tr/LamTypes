@@ -3,7 +3,7 @@ A typing speed test
 
 **Link to project:** https://lam-tu-tr.github.io/LamTypes.github.io/
 
-<blockquote class="imgur-embed-pub" lang="en" data-id="a/iRySdkR"  ><a href="//imgur.com/a/iRySdkR">Lam Types</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+![Pic](https://imgur.com/a/iRySdkR "temp")
 ## How It's Made:
 
 **Tech used:** HTML, CSS, JavaScript
