@@ -3,7 +3,8 @@ A typing speed test
 
 **Link to project:** https://lam-tu-tr.github.io/LamTypes.github.io/
 
-![Pic](https://imgur.com/a/iRySdkR "temp")
+![Pic](/Pics/Lamtypes.png)
+
 ## How It's Made:
 
 **Tech used:** HTML, CSS, JavaScript
@@ -12,10 +13,10 @@ Built from scratch in 2 weeks, this project kicked started my web development jo
 and validated user input using Javascript. The inspirational quotes were fetched from an API, which was then displayed for the user to type. 
 
 ## Lessons Learned:
-I learned how to manipulate DOM elements using JS, fetch from an API, and use AddEventListeners to listen for user inputs. I really enjoyed working on this project while figuring out the intricacies of working with the basics of basics. Looking back, I had finished this project without knowing the existence of React or any other frontend frameworks. Because of this, I learned to appreciate React and how it helps developers speed up code and optimize for performance without the nitty gritty verbose details.
+I learned how to manipulate DOM elements using JS, fetch from an API, and use AddEventListeners to listen for user inputs. I really enjoyed working on this project while figuring out the intricacies of working with the basics of basics. Looking back, I had finished this project without knowing the existence of React or any other frontend frameworks. Because of this, I learned to appreciate React and how it helps developers speed up code development and optimize for performance without the nitty gritty verbose details.
 
-## Examples:
-Take a look at these couple examples that I have in my own portfolio:
+## Other Projects:
+Check out these projects I have here.
 
 **Ai-Itinerary-Planner:** https://github.com/lam-tu-tr/PlanMyTrip
 
