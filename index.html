@@ -31,40 +31,41 @@
   </head>
 
   <body>
-    <div class="grid">
-      <!---------------------------Free Boxes--------------------------------->
-      <div class="info raise">
-        <div id="wpm">0</div>
-        <div id="cpm">0</div>
-        <div>wpm</div>
-
-        <div>cpm</div>
-      </div>
-      <div class="time_box raise">
-        <div class="time">
-          <span id="second">00</span>:<span id="ten">00</span>
-        </div>
-      </div>
-
+    <main>
       <!------------------------------Navbar--------------------------------->
-      <nav class="navbar">
-        <div class="raise">
-          <text>Lam Types</text>
-        </div>
+      <nav id="navbar">
+        <text>Lam Types</text>
       </nav>
 
       <!----------------------------Main Text--------------------------------->
-      <div class="text-wrapper raise">
-        <p class="phrase">
+      <div id="text-wrapper" class="raise">
+        <p id="phrase">
           Click on this text to change the phrase and start the test. Start
           typing to start the timer.
         </p>
       </div>
       <text id="user_input"></text>
 
+      <!---------------------------Info--------------------------------->
+      <div id="info">
+        <aside id="speed">
+          <div>
+            <div id="wpm">0</div>
+            wpm
+          </div>
+          <div>
+            <div id="cpm">0</div>
+            cpm
+          </div>
+        </aside>
+
+        <aside id="timer">
+          <span id="second">00</span>:<span id="ten">00</span>
+        </aside>
+      </div>
       <!-----------------------------Cursor----------------------------------->
       <div class="cursor on"></div>
-    </div>
+    </main>
 
     <!-- AXIOS -->
     <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
