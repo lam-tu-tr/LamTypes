@@ -88,6 +88,12 @@ main {
   /* color: transparent; */
   background-color: transparent;
   border: 0;
+  z-index: -2;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
 }
 /*------------------------------------------Cursor-------------------------------------------------*/
 .cursor.on {
