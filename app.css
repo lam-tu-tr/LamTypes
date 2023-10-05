@@ -85,7 +85,8 @@ main {
 }
 #user_input {
   /* opacity: 0; */
-  /* color: transparent; */
+  color: transparent;
+  caret-color: transparent;
   background-color: transparent;
   border: 0;
   z-index: -2;
