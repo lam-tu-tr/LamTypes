@@ -26,7 +26,7 @@ After completing my portfolio with what I think was my best CSS and HTML practic
 
 Check out these projects I have here.
 
-**Portfolio:** https://www.lamtran.info/
+**Portfolio:** https://github.com/lam-tu-tr/Lam-Portfolio
 
 **Ai-Itinerary-Planner:** https://github.com/lam-tu-tr/PlanMyTrip
 

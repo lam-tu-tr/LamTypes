@@ -199,6 +199,8 @@ document.addEventListener("keydown", function (e) {
 
 // ---------------------------------_Mouse Click--------------------------------------------------
 phrase.addEventListener("click", function (e) {
+  user_input.focus();
+
   char_wrong = 0;
 
   char_index = 0;
