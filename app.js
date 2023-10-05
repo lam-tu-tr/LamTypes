@@ -215,6 +215,7 @@ phrase.addEventListener("click", function (e) {
   outputTens.innerHTML = "00";
   outputSeconds.innerHTML = "00";
   user_input.innerHTML = "";
+  user_input.value = "";
 
   cpm.innerHTML = "0";
   wpm.innerHTML = "0";
